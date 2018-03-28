@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome Admin</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SkillPoint</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" ;>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="add_skill.html">Add Skill</a>
+                    </li>
+                    <li class="active">
+                        <a href="add_qualification.html">Add Qualification</a>
+                    </li>
+                    <li>
+                        <a href="#">Search Company</a>
+                    </li>
+                    <li>
+                        <a href="#">Search Event</a>
+                    </li>
+                    <li>
+                        <a href="#">Personal Development</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-user"></span> My Profile</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <form class="form-horizontal" action="add_qualification.php" method="POST">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="qualification_title">Qualification Title:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="qualification_title" placeholder="Enter Qualification Title">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="qualification_type">Qualification Type:</label>
+            <div class="col-xs-4">
+                <select class="form-control" id="qualification_type" name="qualification_type">
+                    <option>-Select Qualification Type-</option>
+                    <option value='Educational'>Education Qualification</option>
+                    <option value='Professional'>Professional Qualification</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="qualification_description">Description:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="qualification_description" placeholder="Enter Breif Description">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="prior_qualifications">Prior Qualifications:</label>
+            <div class="col-xs-4">
+                <select class="form-control" id="prior_qualification" name="prior_qualification">
+                    <option>-Select Prior Qualification-</option>
+                    <option value='G.C.E. Ordinary Level'>G.C.E. Ordinary Level</option>
+                    <option value='G.C.E. Advanced Level'>G.C.E. Advanced Level</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="educational" class="education" style="display:none">
+                <div class="form-group">
+                        <label class="control-label col-sm-2" for="speciality">Speciality:</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" name="speciality" placeholder="Enter Speciality">
+                        </div>
+                    </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="nvq_level">NVQ Level:</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" name="nvq_level" placeholder="Enter NVQ Level">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="prefix">Prefix:</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" name="prefix" placeholder="Enter Prefix">
+                </div>
+            </div>
+        </div>
+
+        <div id="professional" class="profession" style="display:none">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="postfix">Postfix:</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" name="postfix" placeholder="Enter Postfix">
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $("#qualification_type").change(function () {
+                if ($(this).val() == "Educational") {
+                    $("#educational").show();
+                    $("#professional").hide();
+                }
+                else if ($(this).val() == "Professional") {
+                    $("#professional").show();
+                    $("#educational").hide();
+                } else {
+                    $("#professional").hide();
+                    $("#educational").hide();
+                }
+            });
+        </script>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-default" name="Submit">
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
